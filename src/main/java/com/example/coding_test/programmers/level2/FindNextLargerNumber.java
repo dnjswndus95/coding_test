@@ -1,4 +1,4 @@
-package com.example.coding_test.level2;
+package com.example.coding_test.programmers.level2;
 
 import java.util.Arrays;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package com.example.coding_test.level1;
+package com.example.coding_test.programmers.level1;
 
 /**
  *  주소 : https://school.programmers.co.kr/learn/courses/30/lessons/161989
