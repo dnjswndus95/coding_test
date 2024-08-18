@@ -42,7 +42,6 @@ public class Bandage {
                     answer = health;
             }
 
-            System.out.println("health ======> " + answer);
 
             // 0 이하 -1 리턴
             if(answer <= 0)
