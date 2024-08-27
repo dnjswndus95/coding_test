@@ -17,12 +17,11 @@ public class SeekTheMinValue {
     public int solution(int []A, int []B) {
         int answer = 0;
         Arrays.sort(A);
-        Integer[] b = Arrays.stream(B).boxed().toArray(Integer[]::new);
-        Arrays.sort(b, Collections.reverseOrder());
+        Arrays.sort(B);
 
 
         for(int i = 0; i < A.length; ++i ) {
-            answer += A[i] * b[i];
+            answer += A[i] * B[B.length - 1 - i];
         }
 
         return answer;
