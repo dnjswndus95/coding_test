@@ -2,8 +2,6 @@ package com.example.coding_test.programmers.level1;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * 주소 : https://school.programmers.co.kr/learn/courses/30/lessons/135808
@@ -21,13 +19,10 @@ public class Fruiterer {
      */
     public int solution(int k, int m, int[] score) {
         int answer = 0;
-        Integer[] scoreList = Arrays.stream(score).boxed().toArray(Integer[]::new);
-        Arrays.sort(scoreList, Collections.reverseOrder());
+        Arrays.sort(score);
 
-        for(int i = 0; i < scoreList.length; i += m) {
-            if ((i + 1) % m == 0) {
-                answer += scoreList[i] * m;
-            }
+        for(int i = score.length; i >= m; i -= m) {
+            answer += score[i - m] * m;
         }
 
 
