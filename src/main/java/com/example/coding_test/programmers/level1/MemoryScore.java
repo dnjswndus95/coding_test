@@ -1,5 +1,8 @@
 package com.example.coding_test.programmers.level1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 주소 : https://school.programmers.co.kr/learn/courses/30/lessons/176963
  * 이름 : 추억 점수
@@ -16,19 +19,17 @@ public class MemoryScore {
 
     public static int[] solution(String[] name, int[] yearning, String[][] photos) {
         int[] answer = new int[photos.length];
-        int idx = 0;
-        for (String[] photo : photos) {
-            int score = 0;
-            for (int i = 0; i < photo.length; ++i) {
-                for(int j = 0; j < name.length; ++j) {
-                    if(name[j].equals(photo[i])) {
-                        score += yearning[j];
-                        break;
-                    }
-                }
+
+        Map<String, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < name.length; ++i) {
+            map.put(name[i], yearning[i]);
+        }
+
+        for(int i = 0; i < photos.length; ++i) {
+            for(int j = 0; j < photos[i].length; ++j) {
+                answer[i] += map.getOrDefault(photos[i][j], 0);
             }
-            answer[idx] = score;
-            ++idx;
         }
 
         return answer;
