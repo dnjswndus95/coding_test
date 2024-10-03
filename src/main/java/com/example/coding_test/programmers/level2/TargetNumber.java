@@ -6,8 +6,6 @@ package com.example.coding_test.programmers.level2;
  */
 
 public class TargetNumber {
-
-    static int answer = 0;
     public static void main(String[] args) {
         int[] numbers = {1, 1, 1};
         int target = 1;
@@ -15,24 +13,21 @@ public class TargetNumber {
     }
 
     public static int solution(int[] numbers, int target) {
+        int answer = 1;
         // depth를 전달하니까 for문은 필요없음.
-        dfs(numbers, 0, target, 0);
+        answer = dfs(numbers, 0, target, 0);
         return answer;
     }
 
-    public static void dfs(int[] numbers, int depth, int target, int value) {
+    public static int dfs(int[] numbers, int depth, int target, int value) {
         if(depth == numbers.length) {
             if (target == value) {
-                ++answer;
+               return 1;
             }
-            return;
+            return 0;
         }
 
-        int plusValue = value + numbers[depth];
-        int minusValue = value - numbers[depth];
-
-        dfs(numbers, depth + 1, target, plusValue);
-        dfs(numbers, depth + 1, target, minusValue);
+        return dfs(numbers, depth + 1, target, value + numbers[depth]) + dfs(numbers, depth + 1, target, value - numbers[depth]);
     }
 
 }
