@@ -3,6 +3,8 @@ package com.example.coding_test.programmers.level2;
 /**
  * 주소 : https://school.programmers.co.kr/learn/courses/30/lessons/12914
  * 문제 : 멀리 뛰기
+ *
+ * dp를 이용해 풀자...
  */
 public class LongJump {
 
