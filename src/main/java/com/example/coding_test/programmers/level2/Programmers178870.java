@@ -17,23 +17,26 @@ public class Programmers178870 {
     public static void main(String[] args) {
         int[] sequence = {1, 2, 3, 4, 5};
         int k = 7;
-        solution(sequence, k);
+        int[] answer = solution(sequence, k);
+
+        System.out.println(answer[0] + ", " + answer[1]);
     }
 
     public static int[] solution(int[] sequence, int k) {
+
         int left = 0;
         int right = 0;
+        int minLength = Integer.MAX_VALUE;
         int sum = 0;
 
-        int minLength = Integer.MAX_VALUE;
-        int answer1 = 0;
-        int answer2 = 0;
-
+        int leftAnswer = 0;
+        int rightAnswer = 0;
 
         for(; right < sequence.length; ++right) {
+
             sum += sequence[right];
 
-            while(sum > k && left <= right) {
+            while(sum > k && left < right) {
                 sum -= sequence[left];
                 ++left;
             }
@@ -41,18 +44,35 @@ public class Programmers178870 {
             if(sum == k) {
                 if(minLength > right - left) {
                     minLength = right - left;
-                    answer1 = left;
-                    answer2 = right;
+                    leftAnswer = left;
+                    rightAnswer = right;
                 } else if(minLength == right - left) {
-                    answer1 = Math.min(answer1, left);
-                    answer2 = Math.min(answer2, right);
+                    leftAnswer = Math.min(leftAnswer, left);
+                    rightAnswer = Math.min(rightAnswer, right);
                 }
             }
         }
 
-        return new int[]{answer1, answer2};
+
+        return new int[]{leftAnswer, rightAnswer};
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
