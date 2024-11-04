@@ -21,24 +21,22 @@ public class MagicElevator {
         int answer = 0;
 
         while(storey != 0) {
-            int digit = storey % 10;
+            int digits = storey % 10;
             storey /= 10;
 
-            if(digit == 5) {
+            if(digits == 5) {
                 if(storey % 10 >= 5) {
-                    answer += (10 - digit);
-                    ++storey;
+                    answer += (10 - digits);
+                    storey += 1;
                 } else {
-                    answer += digit;
+                    answer += digits;
                 }
-            } else if(digit < 5) {
-                // 나머지가 5보다 작으면 -1을 하는게 최선이다.
-                answer += digit;
-            } else if(digit >  5) {
-                // 나머지가 5보다 크면 +1을 하는게 최선이다.
-                answer += (10 - digit);
-                // 올라가서 층수가 올라갔다.
-                ++storey;
+            }
+            else if(digits > 5) {
+                answer += (10 - digits);
+                storey += 1;
+            } else {
+                answer += digits;
             }
         }
 
